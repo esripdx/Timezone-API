@@ -2,7 +2,11 @@
 Example
 -------
 
-    curl -H "Authorization: Basic geoloqi:api" "http://timezone-api.geoloqi.com/timezone?latitude=45.5118&longitude=-122.6433"
+    curl -u geoloqi:api "http://timezone-api.geoloqi.com/timezone?latitude=45.5118&longitude=-122.6433"
+
+or, if you don't like query string parameters:
+
+    curl -u geoloqi:api http://timezone-api.geoloqi.com/timezone/45.5118/-122.6433
 
 Nginx Config
 ------------
@@ -11,7 +15,8 @@ Nginx Config
         listen 80;
         access_log /var/log/nginx/timezone.log main;
         error_log /var/log/nginx/timezone.log notice;
-        root /web/TimezoneDB;
+
+        root /web/Timezone-API;
 
         location / {
             try_files $uri /index.php?$query_string;
