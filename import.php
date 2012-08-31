@@ -4,7 +4,6 @@ include('inc.php');
 $db = new PDO(PDO_DSN, PDO_USER, PDO_PASS, array(PDO::ATTR_PERSISTENT => false));
 
 
-/*
 $query = $db->prepare('CREATE TABLE "timezone" (
 	"id" SERIAL,
 	"location" "geography",
@@ -14,7 +13,6 @@ $query->execute();
 
 $query = $db->prepare('ALTER TABLE "timezone" OWNER TO gisgroup');
 $query->execute();
-*/
 
 
 $data = file('tz_cities.txt');
